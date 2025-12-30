@@ -1,0 +1,76 @@
+﻿@NewsApi_HostAddress = https://localhost:7110
+
+GET {{NewsApi_HostAddress}}/articles
+
+###
+
+GET {{NewsApi_HostAddress}}/articles/published
+
+###
+
+@id=4
+GET {{NewsApi_HostAddress}}/articles/{{id}}
+
+###
+
+POST {{NewsApi_HostAddress}}/articles
+Content-Type: application/json
+
+{
+  "title":"Bye Bye 2025",
+  "content":"End of Year 2025.",
+  "author":"Manu Dubey",
+  "state":1,
+  "PublishedOn":"2025-12-13"
+
+}
+
+###
+
+POST {{NewsApi_HostAddress}}/articles
+Content-Type: application/json
+
+{
+  "title":"New Year",
+  "content":"Happy New Year 2026.",
+  "author":"Hydra insurgent",
+  "state":0,
+  "PublishedOn":"2025-12-13"
+
+}
+
+###
+
+POST {{NewsApi_HostAddress}}/articles
+Content-Type: application/json
+
+{
+  "title":"Happy Diwali",
+  "content":"Happy Diwali 2025.",
+  "author":"Author",
+  "state":2,
+  "PublishedOn":"2025-10-23"
+
+}
+
+###
+
+@uid=3
+PUT {{NewsApi_HostAddress}}/articles/{{uid}}
+Content-Type: application/json
+
+{
+  "title":"Happy Holi",
+  "content":"Happy Holi 2025.",
+  "author":"Modifier",
+  "state":1,
+  "PublishedOn":"2025-03-10"
+
+}
+
+###
+
+@did = 2
+DELETE {{NewsApi_HostAddress}}/articles/{{did}}
+
+###
