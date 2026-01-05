@@ -38,3 +38,22 @@ Content-Type: application/json
 DELETE {{TodoApi_HostAddress}}/todoitems/{{id}}
 
 ###
+// Error Validation Request
+POST {{TodoApi_HostAddress}}/todoitems
+Content-Type: application/json
+
+{
+  "isComplete": true
+}
+
+###
+// Error Validation Request
+POST {{TodoApi_HostAddress}}/todoitems
+Content-Type: application/json
+
+{
+  "name": "ThisIsAVeryLongTodoItemNameCreatedOnlyForTestingValidationRulesAndEnsuringThatTheStringLengthExceedsOneHundredCharacters",
+  "isComplete": true
+}
+
+###

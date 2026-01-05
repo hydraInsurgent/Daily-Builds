@@ -27,8 +27,7 @@
                 "$ref": "#/components/schemas/TodoItemDTO"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -128,6 +127,9 @@
   "components": {
     "schemas": {
       "TodoItemDTO": {
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -135,8 +137,9 @@
             "format": "int32"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
           },
           "isComplete": {
             "type": "boolean"

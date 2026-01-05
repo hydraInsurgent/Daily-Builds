@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VJm7QBAc5Pk=",
+  "dgSpecHash": "7ehsobQyFIY=",
   "success": true,
-  "projectFilePath": "D:\\Personal\\Code\\Daily Builds\\NewsApi\\NewsApi\\NewsApi.csproj",
+  "projectFilePath": "D:\\Personal\\Code\\Daily Builds\\apis\\dotnet\\NewsApi\\NewsApi\\NewsApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\9.0.11\\microsoft.aspnetcore.diagnostics.entityframeworkcore.9.0.11.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.11\\microsoft.entityframeworkcore.9.0.11.nupkg.sha512",

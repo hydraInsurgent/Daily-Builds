@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using TodoApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TodoDb>(opt => opt.UseInMemoryDatabase("TodoList"));
@@ -19,6 +22,22 @@ todoItems.MapDelete("/{id}", DeleteTodo);
 
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseExceptionHandler(error =>
+{
+    error.Run(async context =>
+    {
+        var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+
+        if (exception is BadHttpRequestException)
+        {
+            context.Response.StatusCode = StatusCodes.Status400BadRequest;
+            await context.Response.WriteAsJsonAsync(new
+            {
+                error = "Bad Request: Invalid or missing JSON body"
+            });
+        }
+    });
+});
 
 
 app.Run();
@@ -41,8 +60,22 @@ static async Task<IResult> GetTodo(int id, TodoDb db)
             : TypedResults.NotFound();
 }
 
-static async Task<IResult> CreateTodo(TodoItemDTO todoItemDTO, TodoDb db)
+static async Task<IResult> CreateTodo(TodoItemDTO? todoItemDTO, TodoDb db)
 {
+    // Inline manual validations
+    //if (todoItemDTO == null)
+    //    return Results.BadRequest("Bad Request: Request body is required");
+
+    //if (string.IsNullOrWhiteSpace(todoItemDTO.Name))
+    //    return Results.BadRequest("Bad Request: Name is required");
+
+    //if (todoItemDTO.Name.Length > 100)
+    //    return Results.BadRequest("Bad Request: Name is too long");
+
+    // Validation through attributes.
+    var validation = todoItemDTO.ValidateModel();
+    if (validation != null) return validation;
+
     var todoItem = new Todo
     {
         IsComplete = todoItemDTO.IsComplete,
@@ -80,3 +113,5 @@ static async Task<IResult> DeleteTodo(int id, TodoDb db)
 
     return TypedResults.NotFound();
 }
+
+

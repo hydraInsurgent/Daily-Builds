@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "Program",
-    "Method": "\u003C\u003CMain\u003E$\u003Eg__GetAllTodos|0_1",
+    "Method": "\u003C\u003CMain\u003E$\u003Eg__GetAllTodos|0_2",
     "RelativePath": "todoitems/",
     "HttpMethod": "GET",
     "IsController": false,
@@ -17,7 +17,7 @@
   },
   {
     "ContainingType": "Program",
-    "Method": "\u003C\u003CMain\u003E$\u003Eg__CreateTodo|0_4",
+    "Method": "\u003C\u003CMain\u003E$\u003Eg__CreateTodo|0_5",
     "RelativePath": "todoitems/",
     "HttpMethod": "POST",
     "IsController": false,
@@ -26,7 +26,7 @@
       {
         "Name": "todoItemDTO",
         "Type": "TodoItemDTO",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -39,7 +39,7 @@
   },
   {
     "ContainingType": "Program",
-    "Method": "\u003C\u003CMain\u003E$\u003Eg__GetTodo|0_3",
+    "Method": "\u003C\u003CMain\u003E$\u003Eg__GetTodo|0_4",
     "RelativePath": "todoitems/{id}",
     "HttpMethod": "GET",
     "IsController": false,
@@ -61,7 +61,7 @@
   },
   {
     "ContainingType": "Program",
-    "Method": "\u003C\u003CMain\u003E$\u003Eg__UpdateTodo|0_5",
+    "Method": "\u003C\u003CMain\u003E$\u003Eg__UpdateTodo|0_6",
     "RelativePath": "todoitems/{id}",
     "HttpMethod": "PUT",
     "IsController": false,
@@ -88,7 +88,7 @@
   },
   {
     "ContainingType": "Program",
-    "Method": "\u003C\u003CMain\u003E$\u003Eg__DeleteTodo|0_6",
+    "Method": "\u003C\u003CMain\u003E$\u003Eg__DeleteTodo|0_7",
     "RelativePath": "todoitems/{id}",
     "HttpMethod": "DELETE",
     "IsController": false,
@@ -110,7 +110,7 @@
   },
   {
     "ContainingType": "Program",
-    "Method": "\u003C\u003CMain\u003E$\u003Eg__GetCompleteTodos|0_2",
+    "Method": "\u003C\u003CMain\u003E$\u003Eg__GetCompleteTodos|0_3",
     "RelativePath": "todoitems/complete",
     "HttpMethod": "GET",
     "IsController": false,
