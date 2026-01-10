@@ -1,3 +1,10 @@
 # Local helper scripts
 push-daily-build.ps1
 push-daily-build.bat
+
+# Visual Studio (anywhere)
+**/.vs/
+
+# .NET build output (anywhere)
+**/bin/
+**/obj/
