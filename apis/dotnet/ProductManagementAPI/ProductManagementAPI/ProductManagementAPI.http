@@ -1,0 +1,40 @@
+@ProductManagementAPI_HostAddress = https://localhost:7187
+
+POST {{ProductManagementAPI_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "Name": "Wireless Mouse",
+  "Price": 1200,
+  "Stock": 50,
+  "Description": "Ergonomic wireless mouse with Bluetooth support"
+}
+
+###
+
+@id=1
+PUT {{ProductManagementAPI_HostAddress}}/api/products/{{id}}
+Content-Type: application/json
+
+{
+  "Id": 1,
+  "Name": "Wireless Mouse Pro",
+  "Price": 1500,
+  "Stock": 60,
+  "Description": "Upgraded ergonomic Bluetooth mouse"
+}
+
+###
+
+GET {{ProductManagementAPI_HostAddress}}/api/products
+
+###
+
+GET {{ProductManagementAPI_HostAddress}}/api/products/1
+
+###
+
+@id1 = 1
+DELETE {{ProductManagementAPI_HostAddress}}/api/products/{{id1}}
+
+###

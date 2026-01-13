@@ -4,6 +4,7 @@ using RoutingCoreMVC.Models;
 
 namespace RoutingCoreMVC.Controllers
 {
+    [Route("Home")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,20 +14,24 @@ namespace RoutingCoreMVC.Controllers
             _logger = logger;
         }
 
-        [Route("")]
-        [Route("Home")]
-        [Route("Home/Index")]
+        [HttpGet("")]
+        [HttpGet("/")]
+        [HttpGet("Index")]
         public IActionResult Index()
         {
             return View();
         }
-        [Route("Home/Details/{id = 10}")]
+        [HttpGet("Details/{id?}")]
         public IActionResult Details(int id)
         {
             ViewBag.Id = id;
             return View();
         }
-
+        [HttpGet("~/About")]
+        public string About(int id)
+        {
+            return "About() Action Method of HomeController";
+        }
         public IActionResult Privacy()
         {
             return View();
