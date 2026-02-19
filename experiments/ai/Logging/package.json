@@ -1,0 +1,9 @@
+{
+  "name": "logging-lab",
+  "private": true,
+  "description": "Logging in .NET Core concept lab",
+  "scripts": {},
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0"
+  }
+}
