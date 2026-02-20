@@ -1,6 +1,6 @@
 # Logging in .NET Core — Implementation Plan
 
-**Overall Progress:** ~15%
+**Overall Progress:** ~30%
 
 ## TLDR
 
@@ -36,19 +36,19 @@
 
 ### Phase 1: Framing
 
-- [x] 🟩 **Step 1: Concept Framing**
+- [x] 🟩 **Concept Framing**
   - [x] 🟩 Define Question & Success Criteria
   - [x] 🟩 Finalize Variation List & Isolation Strategy
 
 ### Phase 2: Exploration Loop
 
 - **Standard:** /explore → /execute → /contrast → /document
-- **Failure steps:** /break → /document
-- **Contrast-only steps:** /contrast → /document
+- **Failure variations:** /break → /document
+- **Contrast-only:** /contrast → /document
 
 ---
 
-- [x] 🟩 **Step 2: Console + configuration**
+- [x] 🟩 **Var 1: Console + configuration**
   - [x] `ILogger<T>` and `ILoggerFactory`
   - [x] Registering logging in DI (`AddLogging`, host builder)
   - [x] Console provider
@@ -57,15 +57,15 @@
   - [x] Where output appears (console)
   - [x] Isolation: folder/namespace for this variation; minimal host + one service that logs
 
-- [ ] 🟥 **Step 3: Multiple built-in providers (Console + Debug)**
-  - [ ] Adding both Console and Debug providers
-  - [ ] How `Logging:LogLevel` applies to each provider
-  - [ ] Filtering and routing to multiple sinks
-  - [ ] When to use Console vs Debug (dev vs debugger)
-  - [ ] Configuration structure for multiple providers
-  - [ ] Isolation: separate folder/namespace; build on Step 2 without merging
+- [x] 🟩 **Var 2: Multiple built-in providers (Console + Debug)**
+  - [x] Adding both Console and Debug providers
+  - [x] How `Logging:LogLevel` applies to each provider
+  - [x] Filtering and routing to multiple sinks
+  - [x] When to use Console vs Debug (dev vs debugger)
+  - [x] Configuration structure for multiple providers
+  - [x] Isolation: separate folder/namespace; build on Var 1 without merging
 
-- [ ] 🟥 **Step 4: Serilog as provider**
+- [ ] 🟥 **Var 3: Serilog as provider**
   - [ ] Serilog packages and `UseSerilog()`
   - [ ] Replacing or coexisting with default pipeline
   - [ ] Structured properties and message templates
@@ -74,7 +74,7 @@
   - [ ] Why Serilog (enrichers, structured output, sink ecosystem)
   - [ ] Isolation: separate folder/namespace; same `ILogger` abstraction, different provider
 
-- [ ] 🟥 **Step 5: Scopes (incremental)**
+- [ ] 🟥 **Var 4: Scopes (incremental)**
   - [ ] `BeginScope` and `IDisposable`
   - [ ] What scopes represent (key-value or state)
   - [ ] How Console/Debug and Serilog display scope (indentation, properties)
@@ -82,7 +82,7 @@
   - [ ] Nesting scopes
   - [ ] Isolation: separate folder/namespace; incremental on top of prior variations
 
-- [ ] 🟥 **Step 6: Failure / anti-pattern**
+- [ ] 🟥 **Var 5: Failure / anti-pattern**
   - [ ] Anti-pattern: static logger without DI
   - [ ] Anti-pattern: everything logged as Information
   - [ ] Anti-pattern: blocking in logging path
@@ -90,14 +90,14 @@
   - [ ] How each failure manifests
   - [ ] Symptom log — what a developer would see (no logs, noise, hangs, security)
 
-- [ ] 🟥 **Step 7: Structured logging (built-in vs Serilog)**
+- [ ] 🟥 **Var 6: Structured logging (built-in vs Serilog)**
   - [ ] Built-in: message template, template parameters, `LoggerMessage` source generator if relevant
   - [ ] Serilog: structured properties, destructuring
   - [ ] Contrast: output format, queryability, performance
 
 ### Phase 3: Lab Wrap-up
 
-- [ ] 🟥 **Step 8: Final Review**
+- [ ] 🟥 **Final Review**
   - [ ] Technical audit of all variations (/review)
   - [ ] Design implications, coupling, lifetime
   - [ ] Finalize README as "Technical Lab Notebook"
@@ -110,5 +110,7 @@ Out-of-scope for this lab; capture for later:
 
 - **Distributed tracing / OpenTelemetry** — separate concept lab.
 - **External sinks** — Seq, Application Insights, Elasticsearch (integration and configuration).
+- **EventSource / ETW** — built-in provider for diagnostic tooling (PerfView, dotnet-trace); low-overhead, tracing-focused; separate lab on diagnostics/tracing.
+- **EventLog** — built-in provider for Windows Event Log; IT/ops, Event Viewer; platform-specific (Windows).
 - **Full application context** — logging across a larger app with real business logic.
 - **.NET Framework** — logging in non–.NET Core runtimes (if ever needed).

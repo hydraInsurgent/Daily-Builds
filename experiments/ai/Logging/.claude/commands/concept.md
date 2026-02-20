@@ -50,36 +50,41 @@ Only after explicit approval, generate the `Plan.md`. Ensure all identified vari
 ## Tasks
 
 ### Phase 1: Framing
-- [ ] 🟩 **Step 1: Concept Framing**
+- [ ] 🟩 **Concept Framing**
   - [ ] 🟩 Define Question & Success Criteria
   - [ ] 🟩 Finalize Variation List & Isolation Strategy
 
 ### Phase 2: Exploration Loop
-- [ ] 🟥 **Step 2: [Name of Var 1]**
-  - [ ] 🟥 Define implementation strategy (/explore)
-  - [ ] 🟥 Code the variation in isolation (/execute)
-  - [ ] 🟥 Extract trade-offs and insights (/contrast)
-  - [ ] 🟥 Update README insights (/document)
 
-- [ ] 🟥 **Step 3: [Name of Var 2]**
-  - [ ] 🟥 Define implementation strategy (/explore)
-  - [ ] 🟥 Code the variation in isolation (/execute)
-  - [ ] 🟥 Extract trade-offs and insights (/contrast)
-  - [ ] 🟥 Update README insights (/document)
+- **Standard variations:** /explore → /execute → /contrast → /document
+- **Failure variations:** /break → /document
+- **Contrast-only:** /contrast → /document
 
-- [ ] 🟥 **Step 4: [Name of Var 3 - Failure Mode]**
-  - [ ] 🟥 Implement intentional failure (/break)
-  - [ ] 🟥 Document symptoms and detection (/document)
+---
 
-- [ ] 🟥 **Step 5: [Name of Var 4 - Advanced/Adjacent]**
-  - [ ] 🟥 Define implementation strategy (/explore)
-  - [ ] 🟥 Code the variation in isolation (/execute)
-  - [ ] 🟥 Contrast with previous variations (/contrast)
-  - [ ] 🟥 Update README insights (/document)
+- [ ] 🟥 **Var 1: [Name of Var 1]**
+  - [ ] [Thing to explore or implement for this variation — e.g. core abstraction, config, one provider]
+  - [ ] [Another concrete sub-task]
+  - [ ] Isolation: folder/namespace for this variation; [minimal scope]
 
-Note: Adjust the number of steps in Phase 2 to cover the number of agreed-upon variations.
+- [ ] 🟥 **Var 2: [Name of Var 2]**
+  - [ ] [Thing to explore — e.g. adding a second provider, how config applies]
+  - [ ] [Sub-task]
+  - [ ] Isolation: separate folder/namespace; build on Var 1 without merging
+
+- [ ] 🟥 **Var 3: [Name of Var 3 — Failure / anti-pattern]**
+  - [ ] Anti-pattern or intentional misuse to demonstrate
+  - [ ] How the failure manifests
+  - [ ] Symptom log — what a developer would see
+
+- [ ] 🟥 **Var 4: [Name of Var 4 — Advanced or contrast]**
+  - [ ] [Thing to explore — e.g. third-party provider, advanced feature]
+  - [ ] [Sub-task]
+  - [ ] Isolation: separate folder/namespace; [relationship to prior variations]
+
+Note: Adjust the number of variations and their sub-tasks to match the agreed-upon list. Each variation’s bullets describe **what to explore or implement**, not the workflow (explore/execute/contrast/document are applied per the Standard/Failure/Contrast-only rules above).
 
 ### Phase 3: Lab Wrap-up
-- [ ] 🟥 **Step 6: Final Review**
+- [ ] 🟥 **Final Review**
   - [ ] 🟥 Technical audit of all variations (/review)
   - [ ] 🟥 Finalize README as "Technical Lab Notebook"
